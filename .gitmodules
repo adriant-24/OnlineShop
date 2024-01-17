@@ -1,0 +1,6 @@
+[submodule "Angular"]
+	path = Angular
+	url = https://github.com/adriant-24/Angular.git
+[submodule "Backend"]
+	path = Backend
+	url = https://github.com/adriant-24/Backend.git
