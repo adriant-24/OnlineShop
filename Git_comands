@@ -1,0 +1,15 @@
+#creating new repository from comand
+gh auth login
+git inti -b main
+git status
+# add the folder content to the repo/ add a submodule to the repo
+git add ./ git submodule add https://github.com/adriant-24/Angular.git Angular
+# remove added folders/files
+git rm -f -r --cached <Folder/File name>
+#Create repo
+gh repo create
+#Commit to the repo
+git commit -m "first commit Backend"
+git remote -v
+git push origin main
+
