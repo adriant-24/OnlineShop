@@ -7,5 +7,15 @@ docker run -p 8222:8222 -p 50000:50000 -v "C:/Docker/jenkins_home":/var/jenkins_
 docker-compose --env-file kafka.env up
 #Create Topics inside docker compose container named kafka-1
 docker-compose exec kafka-1 /opt/bitnami/kafka/bin/kafka-topics.sh --create --topic test-topic --bootstrap-server host.docker.internal:9092
+
+#------TOPICS------------
+#------CLI-Inside Container----------
+#describe topics
+/opt/bitnami/kafka/bin/kafka-topics.sh --describe --bootstrap-server host.docker.internal:9092
+
+#------CLI-Windows----------
 #Create topic using localhost
 .\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic topic-test1 --partitions 3
+#List topics
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9096
+.\bin\windows\kafka-topics.bat --describe --bootstrap-server localhost:9096
