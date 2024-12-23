@@ -2,3 +2,8 @@
 docker run -p 8222:8222 -p 50000:50000 -v "C:/Docker/jenkins_home":/var/jenkins_home -v "C:/Docker/jenkins_certs":/certs/client:ro -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_CERT_PATH=/certs/client -e JENKINS_OPTS="--httpPort=8222" --name jenkins jenkins/jenkins
 #docker-jenkins
 docker run -p 8222:8222 -p 50000:50000 -v "C:/Docker/jenkins_home":/var/jenkins_home -v "C:/Docker/jenkins_certs":/certs/client:ro -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_CERT_PATH=/certs/client -e JENKINS_OPTS="--httpPort=8222" -e JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Dmail.smtp.auth=true -Dmail.smtp.starttls.enable=true" --name jenkins docker-jenkins
+######Kafka#######
+#Run Docker Compose
+docker-compose --env-file kafka.env
+#Create Topics inside docker compose container named kafka-1
+docker-compose exec kafka-1 /opt/bitnami/kafka/bin/kafka-topics.sh --create --topic test-topic --bootstrap-server host.docker.internal:9092
