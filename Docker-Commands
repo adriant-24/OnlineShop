@@ -10,9 +10,12 @@ docker-compose exec kafka-1 /opt/bitnami/kafka/bin/kafka-topics.sh --create --to
 
 #------TOPICS------------
 #------CLI-Inside Container----------
+docker exec -it <mycontainer> sh
+docker exec -it kafka-1 sh
 #describe topics
 /opt/bitnami/kafka/bin/kafka-topics.sh --describe --bootstrap-server host.docker.internal:9092
-
+#delete topic
+/opt/bitnami/kafka/bin/kafka-topics.sh --bootstrap-server host.docker.internal:9092 --delete --topic topic-test1
 #------CLI-Windows----------
 #Create topic using localhost
 .\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic topic-test1 --partitions 3
