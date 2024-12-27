@@ -22,3 +22,5 @@ docker exec -it kafka-1 sh
 #List topics
 .\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9096
 .\bin\windows\kafka-topics.bat --describe --bootstrap-server localhost:9096
+#Consumer Console
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --from-beginning --topic product-created-events-topic --partition 2 --property "parse.key=true"
